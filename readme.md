@@ -10,6 +10,7 @@ A comprehensive, production-ready simulation and analysis framework for autonomo
 ## � Features
 
 ### 🚀 Core Capabilities
+
 - **Real-time Vehicle Simulation**: Generate realistic sensor data for multiple autonomous vehicles
 - **Advanced Risk Assessment**: ML-powered algorithms for safety analysis
 - **Interactive Dashboard**: Web-based visualization with real-time updates
@@ -18,6 +19,7 @@ A comprehensive, production-ready simulation and analysis framework for autonomo
 - **Multi-format Storage**: Support for JSON, Parquet, and HDFS simulation
 
 ### 🏗️ Architecture
+
 - **Hybrid Deployment**: Docker containers + Python services
 - **Scalable Design**: Handle multiple vehicles and extended simulations
 - **Real-time Processing**: Sub-second data analysis and visualization
@@ -81,6 +83,7 @@ av-status
 ![Dashboard Preview](https://via.placeholder.com/800x400/1f77b4/white?text=Interactive+AV+Dashboard)
 
 Access the live dashboard at `http://localhost:8050` to see:
+
 - Real-time vehicle tracking
 - Risk level visualization
 - Speed and location monitoring
@@ -103,6 +106,7 @@ Access the live dashboard at `http://localhost:8050` to see:
 ## � Components
 
 ### 1. Vehicle Simulation Engine
+
 ```python
 from simulation.vehicle_simulation import VehicleSimulation
 
@@ -115,6 +119,7 @@ data = sim.generate_realistic_data()
 ```
 
 ### 2. Risk Assessment System
+
 ```python
 from processing.sensor_data_processor import RiskAssessment
 
@@ -124,6 +129,7 @@ risk_score = risk_analyzer.calculate_risk(sensor_data)
 ```
 
 ### 3. Data Storage Manager
+
 ```python
 from storage.storage_manager import StorageManager
 
@@ -133,6 +139,7 @@ storage.simulate_hdfs_storage(data)
 ```
 
 ### 4. Interactive Dashboard
+
 ```python
 from dashboard.simple_dashboard import DashboardApp
 
@@ -143,16 +150,19 @@ app.run(host='0.0.0.0', port=8050, debug=False)
 ## 🐳 Docker Deployment
 
 ### Minimal Setup (Redis Only)
+
 ```bash
 docker-compose -f docker-compose-minimal.yml up -d
 ```
 
 ### Full Stack (When Available)
+
 ```bash
 docker-compose -f docker-compose.yml up -d
 ```
 
 Includes:
+
 - Apache Kafka for message streaming
 - Apache Spark for big data processing
 - MLflow for ML model management
@@ -188,6 +198,7 @@ python deployment_status.py
 ### Common Issues
 
 **Dashboard not loading?**
+
 ```bash
 # Check if ports are available
 netstat -an | findstr :8050
@@ -196,6 +207,7 @@ av-dashboard --port 8051
 ```
 
 **Redis connection failed?**
+
 ```bash
 # Verify Redis container
 docker ps | grep redis
@@ -204,6 +216,7 @@ python test_redis_integration.py
 ```
 
 **Data not generating?**
+
 ```bash
 # Check simulation status
 av-status
@@ -216,6 +229,7 @@ python deployment_status.py
 We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
 ### Development Setup
+
 ```bash
 git clone https://github.com/alaminxtration/Autonomous-Vehicle-Simulation-Data-Analysis.git
 cd Autonomous-Vehicle-Simulation-Data-Analysis
@@ -225,6 +239,7 @@ pip install -e ".[dev]"
 ```
 
 ### Code Style
+
 ```bash
 # Format code
 black .
