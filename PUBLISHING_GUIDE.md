@@ -35,6 +35,7 @@ git push origin main
 3. Tag version: `v1.0.0`
 4. Release title: `Autonomous Vehicle Simulation v1.0.0`
 5. Description:
+
 ```markdown
 # 🚗 First Release - Production Ready!
 
@@ -52,6 +53,7 @@ pip install git+https://github.com/alaminxtration/Autonomous-Vehicle-Simulation-
 ```
 
 ## 📊 Key Features
+
 - **5+ Vehicle Simulation**: Real-time sensor data generation
 - **Risk Assessment**: ML-powered safety analysis
 - **Live Dashboard**: Interactive visualization at localhost:8050
@@ -59,9 +61,11 @@ pip install git+https://github.com/alaminxtration/Autonomous-Vehicle-Simulation-
 - **Storage Optimized**: Efficient data management
 
 ## 🔗 Links
+
 - [Documentation](https://github.com/alaminxtraction/Autonomous-Vehicle-Simulation-Data-Analysis#readme)
 - [Quick Start Guide](https://github.com/alaminxtraction/Autonomous-Vehicle-Simulation-Data-Analysis#quick-start)
 - [Docker Deployment](https://github.com/alaminxtraction/Autonomous-Vehicle-Simulation-Data-Analysis#docker-deployment)
+
 ```
 
 ### 3. **Publish to PyPI (Optional)**
@@ -138,6 +142,7 @@ risk_score = risk_analyzer.calculate_risk(data[0])
    - docker
 
 2. **Create a compelling description**:
+
    ```
    🚗 Production-ready autonomous vehicle simulation with real-time risk assessment, interactive dashboard, and Docker deployment
    ```
@@ -159,6 +164,7 @@ risk_score = risk_analyzer.calculate_risk(data[0])
 ### **Documentation Website**
 
 Consider creating a documentation site using:
+
 - GitHub Pages
 - GitBook
 - ReadTheDocs
@@ -206,7 +212,7 @@ Track your package success:
    - Plan v1.1.0 features
    - Build community
 
-## 🏆 Congratulations!
+## 🏆 Congratulations
 
 You now have a **production-ready, publishable package** with:
 

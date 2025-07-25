@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2025-07-26
 
 ### Added
+
 - Initial release of Autonomous Vehicle Simulation package
 - Real-time vehicle simulation engine with 5+ vehicles support
 - Advanced risk assessment algorithms with ML-powered analysis
@@ -23,15 +24,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Complete documentation and usage examples
 
 ### Features
+
 - **Vehicle Simulation**: Generate realistic sensor data for autonomous vehicles
 - **Risk Assessment**: Calculate and analyze safety risk scores
-- **Dashboard**: Interactive visualization at http://localhost:8050
+- **Dashboard**: Interactive visualization at <http://localhost:8050>
 - **Storage**: Multi-format data storage with compression
 - **Docker**: Containerized Redis deployment
 - **CLI Tools**: Command-line interface for all operations
 - **API**: Comprehensive Python API for integration
 
 ### Technical Specifications
+
 - Python 3.8+ compatibility
 - Docker deployment ready
 - Redis integration for real-time data
@@ -43,6 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Memory efficient (Redis ~1.1MB typical usage)
 
 ### Architecture
+
 - Hybrid Docker/local deployment
 - Real-time data pipeline
 - Scalable multi-vehicle simulation
