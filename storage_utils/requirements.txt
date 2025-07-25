@@ -1,0 +1,6 @@
+boto3==1.29.7
+hdfs==2.7.0
+pandas==2.0.3
+numpy==1.24.3
+kafka-python==2.0.2
+pyarrow==12.0.1

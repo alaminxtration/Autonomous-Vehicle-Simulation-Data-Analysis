@@ -1,0 +1,37 @@
+services:
+  # Redis for caching (we have this image locally)
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - av-network
+
+  # Dashboard Service using Node base image
+  dashboard:
+    build:
+      context: .
+      dockerfile: dashboard/Dockerfile.node
+    container_name: dashboard
+    ports:
+      - "8050:8050"
+    environment:
+      - DASH_HOST=0.0.0.0
+      - DASH_PORT=8050
+    volumes:
+      - ./data:/app/data
+    networks:
+      - av-network
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+volumes:
+  redis-data:
+
+networks:
+  av-network:
+    driver: bridge

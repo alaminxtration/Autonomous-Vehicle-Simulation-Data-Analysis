@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  # Vehicle Simulation Service
+  vehicle-simulation:
+    build:
+      context: .
+      dockerfile: simulation/Dockerfile
+    container_name: vehicle-simulation
+    environment:
+      - SIMULATION_DURATION=300
+    volumes:
+      - ./data:/app/data
+    networks:
+      - av-network
+    restart: unless-stopped
+
+  # Data Processor Service
+  data-processor:
+    build:
+      context: .
+      dockerfile: processor/Dockerfile
+    container_name: data-processor
+    volumes:
+      - ./data:/app/data
+    networks:
+      - av-network
+    restart: unless-stopped
+    depends_on:
+      - vehicle-simulation
+
+  # Dashboard Service (No Kafka version)
+  dashboard:
+    build:
+      context: .
+      dockerfile: dashboard/Dockerfile
+    container_name: dashboard
+    ports:
+      - "8050:8050"
+    environment:
+      - DASH_HOST=0.0.0.0
+      - DASH_PORT=8050
+    volumes:
+      - ./data:/app/data
+    networks:
+      - av-network
+    restart: unless-stopped
+    depends_on:
+      - vehicle-simulation
+      - data-processor
+
+  # Redis for caching (optional)
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - av-network
+
+volumes:
+  redis-data:
+
+networks:
+  av-network:
+    driver: bridge

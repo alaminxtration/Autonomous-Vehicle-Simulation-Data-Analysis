@@ -1,0 +1,19 @@
+services:
+  # Only Redis - using locally available image
+  redis:
+    image: redis:7-alpine
+    container_name: av-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - av-network
+    restart: unless-stopped
+
+volumes:
+  redis-data:
+
+networks:
+  av-network:
+    driver: bridge
