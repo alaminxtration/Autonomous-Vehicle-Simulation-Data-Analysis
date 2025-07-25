@@ -5,7 +5,9 @@
 ### Installation Issues
 
 #### Problem: `pip install` fails with permission error
+
 **Solution**:
+
 ```bash
 # Use virtual environment (recommended)
 python -m venv .venv
@@ -18,7 +20,9 @@ pip install --user -r requirements.txt
 ```
 
 #### Problem: `ModuleNotFoundError` after installation
+
 **Solution**:
+
 ```bash
 # Verify virtual environment is activated
 # You should see (.venv) in your prompt
@@ -32,7 +36,9 @@ pip install -r requirements.txt
 ```
 
 #### Problem: GitHub installation fails
+
 **Solution**:
+
 ```bash
 # Use HTTPS instead of SSH
 pip install git+https://github.com/alaminxtration/Autonomous-Vehicle-Simulation-Data-Analysis.git
@@ -46,7 +52,9 @@ pip install -e .
 ### Docker Issues
 
 #### Problem: Docker containers won't start
+
 **Solution**:
+
 ```bash
 # Check Docker is running
 docker --version
@@ -64,7 +72,9 @@ docker-compose up -d
 ```
 
 #### Problem: Port already in use (8050, 3000, 6379)
+
 **Solution**:
+
 ```bash
 # Find what's using the port
 netstat -ano | findstr :8050  # Windows
@@ -77,7 +87,9 @@ lsof -i :8050  # macOS/Linux
 ```
 
 #### Problem: Redis connection refused
+
 **Solution**:
+
 ```bash
 # Check Redis container
 docker ps | grep redis
@@ -95,14 +107,18 @@ docker exec -it <redis-container-name> redis-cli ping
 ### Dashboard Issues
 
 #### Problem: Dashboard won't load at localhost:8050
+
 **Solution**:
+
 1. Check if Python process is running
 2. Verify no firewall blocking port 8050
 3. Try accessing via 127.0.0.1:8050
 4. Check browser console for errors
 
 #### Problem: Dashboard shows "No data available"
+
 **Solution**:
+
 ```bash
 # Check if simulation is running
 # Verify Redis container is up
@@ -116,7 +132,9 @@ python -m dashboard.app
 ```
 
 #### Problem: Dashboard is slow or unresponsive
+
 **Solution**:
+
 1. Reduce number of vehicles in simulation
 2. Increase update intervals
 3. Clear browser cache
@@ -125,7 +143,9 @@ python -m dashboard.app
 ### Simulation Issues
 
 #### Problem: Simulation crashes or freezes
+
 **Solution**:
+
 ```bash
 # Check available memory
 # Reduce simulation parameters
@@ -142,7 +162,9 @@ logging.basicConfig(level=logging.DEBUG)
 ```
 
 #### Problem: Poor simulation performance
+
 **Solution**:
+
 1. **Reduce complexity**:
    - Fewer vehicles
    - Shorter duration
@@ -161,7 +183,9 @@ logging.basicConfig(level=logging.DEBUG)
 ### Data Issues
 
 #### Problem: Data export fails
+
 **Solution**:
+
 ```python
 # Check file permissions
 import os
@@ -175,7 +199,9 @@ export_data(data, "output.json", format="json")
 ```
 
 #### Problem: Large memory usage
+
 **Solution**:
+
 ```python
 # Implement data sampling
 data_sample = data.sample(frac=0.1)  # Use 10% of data
@@ -193,7 +219,9 @@ gc.collect()
 ### Grafana Issues
 
 #### Problem: Can't access Grafana at localhost:3000
+
 **Solution**:
+
 ```bash
 # Check Grafana container
 docker-compose logs grafana
@@ -208,7 +236,9 @@ docker-compose ps
 ```
 
 #### Problem: Grafana shows no data
+
 **Solution**:
+
 1. Configure data source (Redis/Prometheus)
 2. Check dashboard queries
 3. Verify time range settings
@@ -217,12 +247,15 @@ docker-compose ps
 ### Performance Optimization
 
 #### System Requirements
+
 - **Minimum**: 4GB RAM, 2 CPU cores
 - **Recommended**: 8GB RAM, 4 CPU cores
 - **Storage**: 2GB free space
 
 #### Optimization Tips
+
 1. **Python optimizations**:
+
    ```python
    # Use NumPy for calculations
    import numpy as np
@@ -233,6 +266,7 @@ docker-compose ps
    ```
 
 2. **Docker optimizations**:
+
    ```yaml
    # In docker-compose.yml, limit resources
    services:
@@ -242,6 +276,7 @@ docker-compose ps
    ```
 
 3. **Data optimizations**:
+
    ```python
    # Use appropriate data types
    df['vehicle_id'] = df['vehicle_id'].astype('int32')
@@ -254,7 +289,9 @@ docker-compose ps
 ### Network Issues
 
 #### Problem: Cannot access from other machines
+
 **Solution**:
+
 ```bash
 # Change host binding in dashboard
 run_dashboard(host="0.0.0.0", port=8050)
@@ -267,7 +304,9 @@ services:
 ```
 
 #### Problem: Slow network responses
+
 **Solution**:
+
 1. Check network bandwidth
 2. Implement data compression
 3. Use WebSocket connections
@@ -276,7 +315,9 @@ services:
 ### Development Issues
 
 #### Problem: Code changes not reflected
+
 **Solution**:
+
 ```bash
 # Install in development mode
 pip install -e .
@@ -290,7 +331,9 @@ find . -name "__pycache__" -delete
 ```
 
 #### Problem: Import errors in development
+
 **Solution**:
+
 ```python
 # Add project root to Python path
 import sys
@@ -305,9 +348,11 @@ from autonomous_vehicle_simulation import VehicleSimulation  # External
 ## Getting Help
 
 ### Log Collection
+
 When reporting issues, include:
 
 1. **System info**:
+
    ```bash
    python --version
    docker --version
@@ -315,6 +360,7 @@ When reporting issues, include:
    ```
 
 2. **Error logs**:
+
    ```bash
    # Python errors
    python simulation.py 2>&1 | tee error.log
@@ -324,6 +370,7 @@ When reporting issues, include:
    ```
 
 3. **System resources**:
+
    ```bash
    # Windows
    wmic OS get TotalVisibleMemorySize,FreePhysicalMemory

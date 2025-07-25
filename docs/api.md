@@ -21,25 +21,30 @@ sim = VehicleSimulation(
 #### Methods
 
 ##### `run()`
+
 Executes the simulation and returns collected data.
 
 **Returns**: `pandas.DataFrame` with simulation results
 
 **Example**:
+
 ```python
 data = sim.run()
 print(data.head())
 ```
 
 ##### `get_vehicle_data(vehicle_id)`
+
 Retrieves data for a specific vehicle.
 
 **Parameters**:
+
 - `vehicle_id` (int): Vehicle identifier
 
 **Returns**: `dict` with vehicle metrics
 
 ##### `calculate_risk_scores()`
+
 Computes safety risk scores for all vehicles.
 
 **Returns**: `dict` mapping vehicle_id to risk_score
@@ -66,17 +71,21 @@ run_dashboard(config)
 #### Functions
 
 ##### `run_dashboard(config=None)`
+
 Launches the web dashboard application.
 
 **Parameters**:
+
 - `config` (DashboardConfig, optional): Dashboard configuration
 
 **Example**:
+
 ```python
 run_dashboard()  # Access at http://localhost:8050
 ```
 
 ##### `get_live_metrics()`
+
 Retrieves current simulation metrics.
 
 **Returns**: `dict` with real-time data
@@ -94,17 +103,21 @@ risk_analyzer = RiskAssessment()
 #### Methods
 
 ##### `detect_collisions(vehicles)`
+
 Identifies potential vehicle collisions.
 
 **Parameters**:
+
 - `vehicles` (list): List of vehicle objects
 
 **Returns**: `list` of collision events
 
 ##### `calculate_safety_score(vehicle)`
+
 Computes safety score for a vehicle.
 
 **Parameters**:
+
 - `vehicle` (Vehicle): Vehicle object
 
 **Returns**: `float` safety score (0-100)
@@ -126,6 +139,7 @@ class Vehicle:
 ```
 
 **Attributes**:
+
 - `id` (int): Unique vehicle identifier
 - `position` (tuple): (x, y) coordinates
 - `speed` (float): Current velocity
@@ -146,6 +160,7 @@ class SimulationData:
 ```
 
 **Attributes**:
+
 - `vehicles` (list): Vehicle state history
 - `events` (list): Simulation events
 - `metrics` (dict): Performance metrics
@@ -172,6 +187,7 @@ sim = VehicleSimulation(config=config)
 ```
 
 **Parameters**:
+
 - `num_vehicles` (int): Number of vehicles (1-100)
 - `duration` (int): Simulation time in seconds
 - `scenario` (str): "highway", "urban", "parking"
@@ -195,6 +211,7 @@ config = DashboardConfig(
 ```
 
 **Parameters**:
+
 - `port` (int): Server port (default: 8050)
 - `host` (str): Server host (default: "localhost")
 - `debug` (bool): Debug mode (default: False)
@@ -232,6 +249,7 @@ plot_risk_heatmap(risk_data, save_path="risk_map.png")
 ### Common Exceptions
 
 #### `SimulationError`
+
 Raised when simulation encounters an error.
 
 ```python
@@ -242,6 +260,7 @@ except SimulationError as e:
 ```
 
 #### `ConfigurationError`
+
 Raised for invalid configuration parameters.
 
 ```python
@@ -252,6 +271,7 @@ except ConfigurationError as e:
 ```
 
 #### `DataExportError`
+
 Raised when data export fails.
 
 ```python

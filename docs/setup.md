@@ -39,11 +39,13 @@ pip install -r requirements.txt
 ### Python Environment
 
 1. Ensure Python 3.8+ is installed:
+
 ```bash
 python --version
 ```
 
 2. Create and activate virtual environment:
+
 ```bash
 python -m venv .venv
 .venv\Scripts\activate  # Windows
@@ -51,6 +53,7 @@ source .venv/bin/activate  # macOS/Linux
 ```
 
 3. Install requirements:
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -59,12 +62,14 @@ pip install -r requirements.txt
 
 1. Install Docker Desktop
 2. Verify Docker is running:
+
 ```bash
 docker --version
 docker-compose --version
 ```
 
 3. Start required services:
+
 ```bash
 docker-compose up -d
 ```
@@ -72,11 +77,13 @@ docker-compose up -d
 ## Verification
 
 ### Test Python Installation
+
 ```bash
 python -c "from autonomous_vehicle_simulation import VehicleSimulation; print('✅ Installation successful!')"
 ```
 
 ### Test Docker Services
+
 ```bash
 docker-compose ps
 ```
@@ -85,8 +92,8 @@ Expected output should show Redis and Grafana containers running.
 
 ### Access Services
 
-- **Dashboard**: http://localhost:8050
-- **Grafana**: http://localhost:3000 (admin/admin)
+- **Dashboard**: <http://localhost:8050>
+- **Grafana**: <http://localhost:3000> (admin/admin)
 - **Redis**: localhost:6379
 
 ## Troubleshooting
@@ -114,6 +121,7 @@ Expected output should show Redis and Grafana containers running.
 ### Python Environment Issues
 
 **Problem**: `ModuleNotFoundError`
+
 ```bash
 # Solution: Activate virtual environment
 .venv\Scripts\activate  # Windows
@@ -122,6 +130,7 @@ pip install -r requirements.txt
 ```
 
 **Problem**: `Permission denied`
+
 ```bash
 # Solution: Use virtual environment or --user flag
 pip install --user -r requirements.txt
@@ -130,6 +139,7 @@ pip install --user -r requirements.txt
 ### Docker Issues
 
 **Problem**: Container won't start
+
 ```bash
 # Check Docker status
 docker ps -a
@@ -141,6 +151,7 @@ docker-compose up -d
 ```
 
 **Problem**: Port already in use
+
 ```bash
 # Find process using port
 netstat -ano | findstr :8050  # Windows
@@ -152,11 +163,13 @@ lsof -i :8050  # macOS/Linux
 ### Dashboard Issues
 
 **Problem**: Dashboard not loading
+
 1. Check Python server is running
 2. Verify port 8050 is accessible
 3. Check browser console for errors
 
 **Problem**: No data showing
+
 1. Verify Redis is running: `docker ps`
 2. Check simulation is generating data
 3. Restart services: `docker-compose restart`
@@ -164,11 +177,13 @@ lsof -i :8050  # macOS/Linux
 ### Performance Issues
 
 **Problem**: Slow simulation
+
 1. Reduce number of vehicles
 2. Increase update intervals
 3. Check system resources
 
 **Problem**: High memory usage
+
 1. Limit simulation duration
 2. Optimize data retention
 3. Monitor with: `docker stats`
